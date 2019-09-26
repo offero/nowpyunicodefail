@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "name": "nowpyunicodefail",
+  "builds": [
+    { "src": "www/package.json", "use": "@now/next" },
+    { "src": "api/pyendpoint/index.py", "use": "@now/python" }
+  ],
+  "routes": [
+    { "src": "/api/pyendpoint", "dest": "api/pyendpoint/index.py" },
+    { "src": "/api/(.*)$", "dest": "www/api/$1" },
+    { "src": "/(.*)", "dest": "www/$1" }
+  ]
+}
